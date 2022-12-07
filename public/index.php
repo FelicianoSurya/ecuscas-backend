@@ -44,6 +44,10 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
+header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Methods:PUT,PATCH,DELETE,POST,GET');
+header('Access-Control-Allow-Headers:Authorization,Content-Type,X-XSRF-TOKEN');
+
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);

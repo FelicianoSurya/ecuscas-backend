@@ -37,7 +37,7 @@ class AuthController extends Controller
         $params = [
             'username' => $username,
             'name' => $name,
-            'password' => $password,
+            'password' => Hash::make($password),
             'email' => $email,
             'address' => $address,
             'phone' => $phone
