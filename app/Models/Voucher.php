@@ -10,6 +10,6 @@ class Voucher extends Model
     use HasFactory;
 
     protected $table = 'voucher';
-    protected $fillable = ['name','diskon'];
+    protected $fillable = ['name','diskon','image','keterangan'];
     public $timestamps = false;
 }

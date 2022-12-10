@@ -19,10 +19,10 @@ class AuthController extends Controller
             if($check){
                 return response()->json($user);
             }else{
-                return response()->json(['message' => 'Password Salah!']);
+                return response()->json(['message' => 'Password Salah!'], 400);
             }
         }else{
-            return response()->json(['message' => 'Username atau Password Salah!']);
+            return response()->json(['message' => 'Username atau Password Salah!'],400);
         }
     }
 
