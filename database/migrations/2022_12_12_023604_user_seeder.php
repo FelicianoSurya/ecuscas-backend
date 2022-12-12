@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOngkirTable extends Migration
+class UserSeeder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,7 @@ class CreateOngkirTable extends Migration
      */
     public function up()
     {
-        Schema::create('ongkir', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('harga');
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -28,6 +23,6 @@ class CreateOngkirTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ongkir');
+        //
     }
 }

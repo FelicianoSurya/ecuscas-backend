@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
 use App\Models\Voucher;
+use App\Models\Pembayaran;
+use App\Models\Ongkir;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -32,5 +35,20 @@ class HomeController extends Controller
     public function getVoucher(){
         $data = Voucher::all();
         return response()->json($data,200);
+    }
+
+    public function getProduct(){
+        $data = Product::all();
+        return response()->json($data,200);
+    }
+
+    public function getPembayaran(){
+        $data = Pembayaran::all();
+        return response()->json($data, 200);
+    }
+
+    public function getOngkir(){
+        $data = Ongkir::all();
+        return reponse()->json($data, 200);
     }
 }
