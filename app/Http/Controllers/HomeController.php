@@ -29,26 +29,36 @@ class HomeController extends Controller
 
     public function getCategory(){
         $data = Kategori::all();
-        return response()->json($data,200);   
+        return response()->json([
+            "data" => $data
+        ],200);   
     }
 
     public function getVoucher(){
         $data = Voucher::all();
-        return response()->json($data,200);
+        return response()->json([
+            "data" => $data
+        ],200);
     }
 
     public function getProduct(){
         $data = Product::all();
-        return response()->json($data,200);
+        return response()->json([
+            'data' => $data
+        ],200);
     }
 
     public function getPembayaran(){
         $data = Pembayaran::all();
-        return response()->json($data, 200);
+        return response()->json([
+            'data' => $data
+        ],200);
     }
 
     public function getOngkir(){
         $data = Ongkir::all();
-        return reponse()->json($data, 200);
+        return reponse()->json([
+            'data' => $data
+        ],200);
     }
 }
