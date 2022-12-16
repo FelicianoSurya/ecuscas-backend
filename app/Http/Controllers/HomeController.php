@@ -30,35 +30,35 @@ class HomeController extends Controller
     public function getCategory(){
         $data = Kategori::all();
         return response()->json([
-            "data" => $data
+            "dataCategpry" => $data
         ],200);   
     }
 
     public function getVoucher(){
         $data = Voucher::all();
         return response()->json([
-            "data" => $data
+            "dataVoucher" => $data
         ],200);
     }
 
     public function getProduct(){
         $data = Product::all();
         return response()->json([
-            'data' => $data
+            'dataProduct' => $data
         ],200);
     }
 
     public function getPembayaran(){
         $data = Pembayaran::all();
         return response()->json([
-            'data' => $data
+            'dataPembayaran' => $data
         ],200);
     }
 
     public function getOngkir(){
         $data = Ongkir::all();
         return reponse()->json([
-            'data' => $data
+            'dataOngkir' => $data
         ],200);
     }
 }
