@@ -31,7 +31,7 @@ class HomeController extends Controller
         $data = Kategori::all();
         return response()->json([
             "dataCategpry" => $data
-        ],200);   
+        ],200);
     }
 
     public function getVoucher(){

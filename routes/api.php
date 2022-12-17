@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -24,6 +25,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'],function(){
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);
+
+    Route::post('createCategory',[KategoriController::class, 'store']);
+
     Route::get('getCategory',[HomeController::class, 'getCategory']);
     Route::get('getVoucher', [HomeController::class, 'getVoucher']);
+    Route::get('getPembayaran', [HomeController::class, 'getPembayaran']);
+    Route::get('getProduct', [HomeController::class, 'getProduct']);
+    Route::get('getOngkir', [HomeController::class, 'getOngkir']);
 });
