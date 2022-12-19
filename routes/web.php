@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'admin'],function(){
+    Route::get('/adminpanel', [AdminController::class, 'index'])->name('homeAdmin');
+    Route::get('/adminpanel/ordercasing', [AdminController::class, 'getCasing'])->name('casing');
+    Route::get('/adminpanel/orderaksesoris', [AdminController::class, 'getAksesoris'])->name('aksesoris');
+    Route::post('/adminpanel/statusCasing',[AdminController::class, 'updateCasing']);
+    Route::post('/adminpanel/statusAksesoris',[AdminController::class, 'updateAksesoris']);
+});

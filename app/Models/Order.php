@@ -10,7 +10,8 @@ class Order extends Model
     use HasFactory;
 
     protected $table = 'orders';
-    protected $fillable = ['id_user','id_kategori','pembayaran','aksesoris','ongkir','jenis_barang','warna','panjang','lebar','tinggi','gambar','bahan','address','diskon','keterangan','total_harga','gambar'];
+
+    protected $fillable = ['id_user','id_kategori','pembayaran','aksesoris','ongkir','jenis_barang','warna','panjang','lebar','tinggi','gambar','bahan','address','diskon','keterangan','total_harga','status'];
 
  
     public function user(){

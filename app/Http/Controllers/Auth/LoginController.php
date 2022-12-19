@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,25 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request){
+        $validate = Validator::make($request->all(),[
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        if($validate->fails()){
+            return back()->withErrors($validate);
+        }
+
+        if(Auth()->attempt(['username' => $request->username , 'password' => $request->password])){
+            if(Auth()->user()->role == 'admin'){
+                return redirect()->route('homeAdmin');
+            }else{
+                return back();
+            }
+        }else{
+            return back()->withErrors(['invalid' => 'Email atau Password Salah!']);
+        }
     }
 }

@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <div class="d-flex flex-column align-items-center">
+                         <a href="adminpanel/ordercasing"><button class="btn-lg btn-info btn mt-5" style="color:white">Order Casing</button></a>
+                         <a href="adminpanel/orderaksesoris"><button class="btn-lg btn-info btn mt-5" style="color:white">Order Aksesoris</button></a>
+                    </div>
                 </div>
             </div>
         </div>
