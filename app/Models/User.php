@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
     protected $fillable = [
         'name', 
         'username',
@@ -46,4 +47,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function detail_barang(){
+        return $this->hasMany(OrderBarangDetail::class, 'id_user', 'id');
+    }
+
+    public function detail_barang_fix(){
+        return $this->hasMany(DetailBarangFix::class, 'id_user', 'id');
+    }
 }

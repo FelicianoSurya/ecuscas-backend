@@ -10,7 +10,7 @@ class OrderBarang extends Model
     use HasFactory;
 
     protected $table = 'order_barang';
-    protected $fillable = ['id_user','id_voucher','id_pembayaran','id_ongkir','diskon','ket','harga','harga_total'];
+    protected $fillable = ['kode_order','id_user','voucher','pembayaran','ongkir','diskon','ket','harga','harga_total','address','status'];
 
     public function user(){
         return $this->belongsTo(User::class, 'id_user', 'id');

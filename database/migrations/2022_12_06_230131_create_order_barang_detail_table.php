@@ -15,7 +15,9 @@ class CreateOrderBarangDetailTable extends Migration
     {
         Schema::create('order_barang_detail', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_order');
             $table->unsignedBigInteger('id_barang');
+            $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('jumlah');
             $table->string('harga');
             $table->timestamps();

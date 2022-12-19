@@ -11,7 +11,7 @@ class OrderBarangDetail extends Model
 
     protected $table = 'order_barang_detail';
 
-    protected $fillable = ['id_barang','jumlah','harga'];
+    protected $fillable = ['kode_order','id_barang','id_user','jumlah','harga'];
 
     public function barang(){
         return $this->belongsTo(Product::class, 'id_barang','id');

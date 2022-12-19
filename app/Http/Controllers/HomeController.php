@@ -7,6 +7,8 @@ use App\Models\Kategori;
 use App\Models\Voucher;
 use App\Models\Pembayaran;
 use App\Models\Ongkir;
+use App\Models\OrderDetailFix;
+use App\Models\JenisBarang;
 use App\Models\Product;
 
 class HomeController extends Controller
@@ -41,13 +43,6 @@ class HomeController extends Controller
         ],200);
     }
 
-    public function getProduct(){
-        $data = Product::all();
-        return response()->json([
-            'dataProduct' => $data
-        ],200);
-    }
-
     public function getPembayaran(){
         $data = Pembayaran::all();
         return response()->json([
@@ -60,5 +55,22 @@ class HomeController extends Controller
         return reponse()->json([
             'dataOngkir' => $data
         ],200);
+    }
+
+    public function getJenisBarang(Request $request){
+        $idKategori = $request->idKategori;
+        $data = Kategori::with('jenis_barang')->where('id',$idKategori)->get();
+        
+        return response()->json([
+            'dataJenisBarang' => $data,
+        ],200);
+    }
+
+    public function getDetailBarang(Request $request){
+        $kode_order = $request->kode_order;
+        $data = OrderDetailFix::where('kode_order',$kode_order)->get();
+        return response()->json([
+            'get_detail_barang' => $data,
+        ]);
     }
 }

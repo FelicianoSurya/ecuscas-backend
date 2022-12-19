@@ -9,8 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $table = 'order';
-    protected $fillable = ['id_user','id_kategori','id_pembayaran','id_aksesoris','id_ongkir','jenis_barang','panjang','lebar','tinggi','warna','gambar','bahan','address','diskon','keterangan','total_harga'];
+    protected $table = 'orders';
+    protected $fillable = ['id_user','id_kategori','pembayaran','aksesoris','ongkir','jenis_barang','warna','panjang','lebar','tinggi','gambar','bahan','address','diskon','keterangan','total_harga','gambar'];
 
  
     public function user(){
@@ -32,4 +32,6 @@ class Order extends Model
     public function ongkir(){
         return $this->belongsTo(Ongkir::class, 'id_ongkir','id');
     }
+
+    public $timestamps = false;
 }

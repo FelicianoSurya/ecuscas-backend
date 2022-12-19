@@ -17,9 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_kategori');
-            $table->unsignedBigInteger('id_pembayaran');
-            $table->unsignedBigInteger('id_aksesoris');
-            $table->unsignedBigInteger('id_ongkir');
+            $table->string('pembayaran');
+            $table->string('aksesoris');
+            $table->string('ongkir');
             $table->string('jenis_barang');
             $table->float('panjang');
             $table->float('lebar');
@@ -31,6 +31,7 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->string('diskon');
             $table->string('total_harga');
+            $table->enum('status',['konfirmasi_pembayaran','pesanan_diterima','progress','pengiriman','order_selesai'])->default('konfirmasi_pembayaran');
         });
     }
 

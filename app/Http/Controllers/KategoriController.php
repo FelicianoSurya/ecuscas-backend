@@ -16,8 +16,8 @@ class KategoriController extends Controller
             'image' => 'required|mimes:jpg,jpeg,png,gif|max:2048|image',
         ]);
 
-        $destination_path = 'public/Images/Kategori';
-        $image_path = 'http://192.168.168.51:8000/storage/Images/Kategori';
+        $destination_path = 'storage/Images/Kategori';
+        $image_path = 'https:///e-cuscas.biz.id/storage/Images/Kategori';
         $image = $request->file('image');
         $image_name = $image->getClientOriginalName();
         $path = $image->storeAs($destination_path,$image_name);

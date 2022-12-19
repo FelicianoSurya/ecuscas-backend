@@ -12,4 +12,8 @@ class Kategori extends Model
     protected $table = 'kategori';
     protected $fillable = ['name','image'];
     public $timestamps = false;
+
+    public function jenis_barang(){
+        return $this->hasMany(JenisBarang::class, 'id_kategori','id');
+    }
 }

@@ -15,14 +15,16 @@ class CreateOrderBarangTable extends Migration
     {
         Schema::create('order_barang', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_order');
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_voucher');
-            $table->unsignedBigInteger('id_pembayaran');
-            $table->unsignedBigInteger('id_ongkir');
+            $table->float('voucher');
+            $table->string('pembayaran');
+            $table->float('ongkir');
             $table->string('diskon');
             $table->string('harga');
             $table->string('harga_total');
-            $table->string('ket');
+            $table->string('address');
+            $table->enum('status',['konfirmasi_pembayaran','pesanan_diterima','progress','pengiriman','order_selesai'])->default('konfirmasi_pembayaran');
 
             $table->timestamps();
         });
